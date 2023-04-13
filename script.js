@@ -31,9 +31,55 @@ class LinkedList {
     }
 
     headNode() {
-      let node = this.head
-      console.log(node)
-      return node
+        let node = this.head
+        console.log(node)
+        return node
+    }
+
+    tail() {
+        let node = this.head
+        while (node) {
+            if (node.next == null) {
+                console.log(node)
+                return node
+            }
+            node = node.next
+        }
+    }
+
+    at(index) {
+        let node = this.head
+        let counter = 0
+        while (node) {
+            if (counter == index) {
+                console.log(node)
+            }
+            node = node.next
+            counter++
+        }
+    }
+    pop() {
+        let node = this.head
+        while (node) {
+            if (node.next.next == null) {
+                node.next=null
+            }
+            node = node.next
+        }
+    }
+    contains(value){
+        let node = this.head
+        while (node) {
+            if(node.value == value){
+                console.log(true)
+                return true
+            }
+            if (node.next == null) {
+                console.log(false)
+                return false
+            }
+            node = node.next
+        }
     }
 }
 
@@ -50,6 +96,7 @@ node1.next = node2
 
 let list = new LinkedList(node1)
 
-list.prepend(1)
-list.headNode()
+list.append(8)
+
+list.contains('fas')
 console.log(list)
