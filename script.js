@@ -17,8 +17,23 @@ class LinkedList {
         let newHead = new Node(value)
         newHead.next = node
         node = newHead
-        this.head =node
-      
+        this.head = node
+    }
+    size() {
+        let node = this.head
+        let counter = 0
+        while (node) {
+            node = node.next
+            counter++
+        }
+        console.log(counter)
+        return counter
+    }
+
+    headNode() {
+      let node = this.head
+      console.log(node)
+      return node
     }
 }
 
@@ -35,5 +50,6 @@ node1.next = node2
 
 let list = new LinkedList(node1)
 
-list.prepend(4)
+list.prepend(1)
+list.headNode()
 console.log(list)
