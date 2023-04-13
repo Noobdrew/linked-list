@@ -62,15 +62,15 @@ class LinkedList {
         let node = this.head
         while (node) {
             if (node.next.next == null) {
-                node.next=null
+                node.next = null
             }
             node = node.next
         }
     }
-    contains(value){
+    contains(value) {
         let node = this.head
         while (node) {
-            if(node.value == value){
+            if (node.value == value) {
                 console.log(true)
                 return true
             }
@@ -80,6 +80,38 @@ class LinkedList {
             }
             node = node.next
         }
+    }
+    find(value) {
+        let node = this.head
+        let counter = 0
+        while (node) {
+            if (node.value == value) {
+                return this.at(counter)
+
+            }
+            if (node.next == null) {
+                console.log(false)
+                return false
+            }
+            node = node.next
+            counter++
+        }
+    }
+    toString() {
+        let node = this.head
+        let counter = 0
+        let arr = []
+        while (node) {
+            arr.push(node.value)
+
+            node = node.next
+            counter++
+        }
+        arr.push('null')
+        let string = arr.join(' -> ')
+        console.log(string)
+       
+    
     }
 }
 
@@ -98,5 +130,5 @@ let list = new LinkedList(node1)
 
 list.append(8)
 
-list.contains('fas')
+list.toString()
 console.log(list)
