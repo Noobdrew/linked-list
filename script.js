@@ -118,15 +118,24 @@ class LinkedList {
         let newNode = new Node(value)
         let counter = 0
         while (node) {
-                 
             counter++
-            // ------ 1 ------
             if (counter == index) {
                 newNode.next = node.next
                 node.next = newNode
             }
             node = node.next
-            //------- node 7----
+        }
+    }
+    removeAt(index) {
+        let node = this.head
+        let counter = 0
+        while (node) {
+
+            if (counter + 1 == index) {
+                node.next = node.next.next
+            }
+            node = node.next
+            counter++
         }
     }
 }
@@ -146,6 +155,5 @@ let list = new LinkedList(node1)
 
 list.append(8)
 
-list.insertAt(1,6)
-list.insertAt(2,6.5)
+list.removeAt(1)
 console.log(list)
